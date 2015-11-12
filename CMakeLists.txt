@@ -15,7 +15,7 @@ else()
 endif()
 
 find_package(catkin REQUIRED COMPONENTS
-  gencpp
+  roscpp
   geometry_msgs
   rospy
   std_msgs
@@ -23,9 +23,11 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include include/${PROJECT_NAME}/
-  LIBRARIES ${PROJECT_NAME}
-  DEPENDS
+  #LIBRARIES ${PROJECT_NAME}
+  #DEPENDS
 )
+
+message(WARNING ${catkin_LIBRARIES})
 
 include_directories(include/${PROJECT_NAME}/ ${catkin_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})

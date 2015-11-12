@@ -1,9 +1,13 @@
-#include <ros/ros.h>
-#include "geometry_msgs/Twist.h"
+#include "string.h"
 
-void TwistCallBack( const geometry_msgs::Tewist::ConstPtr cmd)
+#include <ros/ros.h>
+#include <geometry_msgs/Twist.h>
+#include <ros/node_handle.h>
+
+void TwistCallBack( const geometry_msgs::Twist::ConstPtr msg_)
 {
-  ROS_INF("Ho ricevuto un twist! Linear = %f\n, Angular = %f\n", cmd->linear.x, cmd->angular.z);
+  ROS_INFO("Ho ricevuto un twist! Linear = %f\n, Angular = %f\n", msg_->linear.x, msg_->angular.z);
+  return;
 }
 
 int main(int argc, char **argv)
@@ -15,7 +19,7 @@ int main(int argc, char **argv)
       
       ros::spin();
       
-      ROS_INFO("Ending agent %s.", l_name.c_str());
+      ROS_INFO("Ending Test");
 
       return 0;
 }
